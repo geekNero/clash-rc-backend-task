@@ -1,0 +1,29 @@
+{% extends "rc/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <h2>Please enter your text here: </h2>
+        <form action="{%url 'rc-home'%}" method='post'>
+            {%csrf_token%}
+<textarea id="w3revi" name="input" rows="4" cols="50">{{input}}</textarea>
+            <br><br>
+<h5>Select text filtration</h5>
+
+<select name="text-format" id="textformat">
+  <option value="op1"> Extract numbers</option>
+  <option value="op2"> Extract date from an url string (yyyy-mm-dd)</option>
+  <option value="op3"> Extract strings within single quotes</option>
+  <option value="op4"> Validate IP addresses and determine class</option>
+  <option value="op5"> Email validator</option>
+  <option value="op6"> Validate MAC address</option>
+  <option value="op7"> Convert CamelCase to snake_case</option>
+
+</select>
+             <br><br>
+            <button type="submit">Submit</button>
+                    </form>
+<br>
+  <h2>Output: </h2>
+        <form>
+            <textarea id="w3revie" name="text" rows="4" cols="50">{{output}}</textarea>
+        </form>
+{% endblock content %}
